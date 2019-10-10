@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+useradd --system --home /etc/vault.d --shell /bin/false vault
