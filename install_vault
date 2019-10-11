@@ -15,10 +15,12 @@ apt update -y
 apt install -y curl unzip
 
 # Download and install Vault binary
+pushd .
 cd /tmp
 curl -sO "${ZIP_URL}"
 unzip "${ZIP_NAME}"
 mv vault "/usr/local/bin/"
+popd
 
 # Allow mlock syscall
 setcap cap_ipc_lock=+ep /usr/local/bin/vault
