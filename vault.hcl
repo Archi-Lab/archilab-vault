@@ -8,3 +8,5 @@ listener "tcp" {
 }
 
 ui = true
+
+api_addr = "https://vault.archi-lab.io"
