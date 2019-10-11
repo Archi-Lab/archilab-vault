@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-vault -autocomplete-install
-complete -C /usr/local/bin/vault vault
