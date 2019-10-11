@@ -1,35 +1,43 @@
 # ArchiLab Vault
 
-This repository contains scripts to setup [Hashicorp Vault](https://www.vaultproject.io/).
+This repository contains scripts to setup
+[Hashicorp Vault](https://www.vaultproject.io/).
 
 ## Install Vault
 
-Download and install a precompiled Hashicorp Vault binary to /usr/local/bin:
+Download and install a precompiled Hashicorp Vault binary and run it as a
+service:
 
 ```bash
 sudo ./install_vault
 ```
 
-## Create Vault User
+## Configure Shell
 
-Create a system user to run Vault:
+Install autocompletion and set Vault address for the current user:
 
 ```bash
-sudo ./create_user
+./configure_shell
 ```
 
-## Install Vault Service
+## Initialize Vault
 
-Create a Vault service file and neccessary folders to run Vault:
+Initilialize Vault with 1 key share and a threshold of 1 (see
+[Shamir's Secret Sharing](https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing))
+and store the output in the current user's home directory:
 
 ```bash
-sudo ./install_service
+./init_vault
 ```
 
-## Install Autocompletion
+## Unseal Vault
 
-Install autocompletion for the current user to use the Vault CLI:
+Unseal Vault with the unseal key from the output of the initialization process:
 
 ```bash
-./install_autocompletion
+cat ~/vault-init.txt
+```
+
+```bash
+vault operator unseal
 ```

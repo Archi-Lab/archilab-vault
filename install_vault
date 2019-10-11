@@ -10,15 +10,32 @@ INSTALL_DIR="/opt/hashicorp/vault"
 ETC_DIR="/etc/${INSTALL_DIR}"
 VAR_DIR="/var/${INSTALL_DIR}"
 
+# Install dependencies
+apt update -y
+apt install -y curl unzip
+
+# Download and install Vault binary
+cd /tmp
 curl -sO "${ZIP_URL}"
 unzip "${ZIP_NAME}"
-rm "${ZIP_NAME}"
 mv vault "/usr/local/bin/"
 
+# Allow mlock syscall
 setcap cap_ipc_lock=+ep /usr/local/bin/vault
 
-if hash vault 2>/dev/null; then
-    echo "Successfully installed $(vault --version)!"
-else
-    echo "Installation failed!"
-fi
+# Install Vault as a systemd service
+cp ./vault.service /etc/systemd/system/
+
+# Create a Vault user
+useradd --system --home /etc/vault --shell /bin/false vault &>/dev/null
+
+# Create Vault directories and install configuration file
+mkdir -p /etc/vault
+cp ./vault.hcl /etc/vault/
+chown -R vault:vault /etc/vault
+chmod 640 /etc/vault/vault.hcl
+mkdir -p /var/lib/vault
+chown -R vault:vault /var/lib/vault
+
+# Enable and start Vault service
+systemctl enable --now vault
