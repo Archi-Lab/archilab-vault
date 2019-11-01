@@ -16,7 +16,7 @@ pushd .
 cd /tmp
 curl -sO "${ZIP_URL}"
 unzip "${ZIP_NAME}"
-mv vault "/usr/local/bin/"
+mv vault /usr/local/bin/
 popd
 
 # Allow mlock syscall

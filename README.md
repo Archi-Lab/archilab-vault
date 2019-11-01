@@ -29,3 +29,11 @@ and store the output in the current user's home directory:
 ```bash
 ./init_unseal
 ```
+
+## Create policies
+
+Create ACL policies for Vault:
+
+```bash
+./create_policies
+```
