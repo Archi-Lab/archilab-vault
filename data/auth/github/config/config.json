@@ -1,4 +1,4 @@
 {
-    "organization": "ArchiLab",
-    "token_policies": ["admin"]
+  "organization": "Archi-Lab",
+  "token_policies": ["admin"]
 }
