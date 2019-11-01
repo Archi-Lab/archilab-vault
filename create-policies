@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+curl \
+    --header "X-Vault-Token: ${VAULT_TOKEN}" \
+    --request PUT \
+    --data @payload.json \
+    ${VAULT_ADDR}/v1/sys/policy/admin
