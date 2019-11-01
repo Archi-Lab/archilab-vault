@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 VAULT_TOKEN="$(cat ${HOME}/vault-root-token)"
+ADMIN_POLICY=$(cat ./data/sys/policy/admin.json | jq -c . | sed 's/"/\\\"/g')
 
 curl \
     --header "X-Vault-Token: ${VAULT_TOKEN}" \
     --request PUT \
-    --data @./data/sys/policy/admin.json \
+    --data "{\"policy\":\"${ADMIN_POLICY}\"}" \
     "${VAULT_ADDR}/v1/sys/policy/admin"

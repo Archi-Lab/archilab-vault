@@ -1,33 +1,31 @@
 {
-  "policy": {
-    "path": {
-      "auth/*": {
-        "capabilities": ["create", "read", "update", "delete", "list", "sudo"]
-      },
-      "sys/auth/*": {
-        "capabilities": ["create", "update", "delete", "sudo"]
-      },
-      "sys/auth": {
-        "capabilities": ["read"]
-      },
-      "sys/policies/acl": {
-        "capabilities": ["list"]
-      },
-      "sys/policies/acl/*": {
-        "capabilities": ["create", "read", "update", "delete", "list", "sudo"]
-      },
-      "secret/*": {
-        "capabilities": ["create", "read", "update", "delete", "list", "sudo"]
-      },
-      "sys/mounts/*": {
-        "capabilities": ["create", "read", "update", "delete", "list", "sudo"]
-      },
-      "sys/mounts": {
-        "capabilities": ["read"]
-      },
-      "sys/health": {
-        "capabilities": ["read", "sudo"]
-      }
+  "path": {
+    "auth/*": {
+      "policy": ["create", "read", "update", "delete", "list", "sudo"]
+    },
+    "sys/auth/*": {
+      "capabilities": ["create", "update", "delete", "sudo"]
+    },
+    "sys/auth": {
+      "capabilities": ["read"]
+    },
+    "sys/policies/acl": {
+      "capabilities": ["list"]
+    },
+    "sys/policies/acl/*": {
+      "capabilities": ["create", "read", "update", "delete", "list", "sudo"]
+    },
+    "secret/*": {
+      "capabilities": ["create", "read", "update", "delete", "list", "sudo"]
+    },
+    "sys/mounts/*": {
+      "capabilities": ["create", "read", "update", "delete", "list", "sudo"]
+    },
+    "sys/mounts": {
+      "capabilities": ["read"]
+    },
+    "sys/health": {
+      "capabilities": ["read", "sudo"]
     }
   }
 }
