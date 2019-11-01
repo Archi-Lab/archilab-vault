@@ -12,7 +12,7 @@ VAR_DIR="/var/${INSTALL_DIR}"
 
 # Install dependencies
 apt update -y
-apt install -y curl unzip
+apt install -y curl unzip jq
 
 # Download and install Vault binary
 pushd .
