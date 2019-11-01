@@ -1,7 +1,7 @@
 {
   "path": {
     "auth/*": {
-      "policy": ["create", "read", "update", "delete", "list", "sudo"]
+      "capabilities": ["create", "read", "update", "delete", "list", "sudo"]
     },
     "sys/auth/*": {
       "capabilities": ["create", "update", "delete", "sudo"]
