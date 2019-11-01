@@ -6,9 +6,6 @@ VAULT_VERSION="1.2.3"
 RELEASES_URL="https://releases.hashicorp.com/vault"
 ZIP_NAME="vault_${VAULT_VERSION}_linux_amd64.zip"
 ZIP_URL="${RELEASES_URL}/${VAULT_VERSION}/${ZIP_NAME}"
-INSTALL_DIR="/opt/hashicorp/vault"
-ETC_DIR="/etc/${INSTALL_DIR}"
-VAR_DIR="/var/${INSTALL_DIR}"
 
 # Install dependencies
 apt update -y
