@@ -5,5 +5,5 @@ VAULT_TOKEN="$(cat ${HOME}/vault-root-token)"
 curl \
     --header "X-Vault-Token: ${VAULT_TOKEN}" \
     --request PUT \
-    --data @payload.json \
+    --data @./data/sys/policy/admin.json \
     "${VAULT_ADDR}/v1/sys/policy/admin"
