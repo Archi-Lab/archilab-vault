@@ -1,3 +1,3 @@
-cp ./vault.hcl /etc/vault/
-chown vault:vault /etc/vault/vault.hcl
-chmod 640 /etc/vault/vault.hcl
+cp ./config.json /etc/vault/
+chown vault:vault /etc/vault/config.json
+chmod 640 /etc/vault/config.json

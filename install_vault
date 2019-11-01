@@ -35,9 +35,9 @@ set -e
 
 # Create Vault directories and install configuration file
 mkdir -p /etc/vault
-cp ./vault.hcl /etc/vault/
+cp ./config.json /etc/vault/
 chown -R vault:vault /etc/vault
-chmod 640 /etc/vault/vault.hcl
+chmod 640 /etc/vault/config.json
 mkdir -p /var/lib/vault
 chown -R vault:vault /var/lib/vault
 
