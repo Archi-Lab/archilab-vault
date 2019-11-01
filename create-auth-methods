@@ -5,5 +5,11 @@ VAULT_TOKEN="$(cat ${HOME}/vault-root-token)"
 curl \
     --header "X-Vault-Token: ${VAULT_TOKEN}" \
     --request POST \
+    --data @./data/auth/github/github.json \
+    "${VAULT_ADDR}/v1/auth/github"
+
+curl \
+    --header "X-Vault-Token: ${VAULT_TOKEN}" \
+    --request POST \
     --data @./data/auth/github/config/config.json \
     "${VAULT_ADDR}/v1/auth/github/config"
