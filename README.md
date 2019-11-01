@@ -32,8 +32,16 @@ and store the output in the current user's home directory:
 
 ## Create policies
 
-Create ACL policies for Vault:
+Create admin ACL policy for Vault:
 
 ```bash
 ./create_policies
+```
+
+## Create authentication methods
+
+Create GitHub authentication method and grant admin policy to all ArchiLab members:
+
+```bash
+./create_auth_methods
 ```
