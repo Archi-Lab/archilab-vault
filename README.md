@@ -18,6 +18,7 @@ Install autocompletion and set Vault address for the current user:
 
 ```bash
 ./scripts/configure_shell.sh
+source ~/.bashrc
 ```
 
 ## Initialize and unseal Vault
@@ -28,6 +29,7 @@ and store the output in the current user's home directory:
 
 ```bash
 ./scripts/init_unseal.sh
+source ~/.bashrc
 ```
 
 ## Create policies
