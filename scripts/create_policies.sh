@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Workaround (https://github.com/hashicorp/vault/issues/582#issuecomment-390460260)
-ADMIN_POLICY=$(cat ./data/sys/policy/admin.json | jq -c . | sed 's/"/\\\"/g')
+ADMIN_POLICY="$(jq -c '.' ./data/sys/policy/admin.json | sed 's/"/\\\"/g')"
 echo "{\"policy\":\"${ADMIN_POLICY}\"}" > /tmp/admin.json
 
 # Create admin policy
