@@ -20,4 +20,3 @@ curl \
 rm "${HOME}/vault-init.json" "${HOME}/vault-unseal.json"
 
 echo "export VAULT_TOKEN=$(< ${HOME}/vault-root-token)" >> "${HOME}/.bashrc"
-export VAULT_TOKEN="$(< ${HOME}/vault-root-token)"
