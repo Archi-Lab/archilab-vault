@@ -12,8 +12,8 @@ rm /etc/systemd/system/vault.service
 rm /usr/local/bin/vault
 
 # Remove Vault directories
-rm -rf /etc/vault
-rm -rf /var/lib/vault
+rm --recursive --force /etc/vault
+rm --recursive --force /var/lib/vault
 
 # Remove Vault user
 deluser --remove-all-files vault

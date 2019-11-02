@@ -9,7 +9,7 @@ Download and install a precompiled Hashicorp Vault binary and run it as a
 service:
 
 ```bash
-sudo ./install_vault
+sudo ./scripts/install_vault.sh
 ```
 
 ## Configure Shell
@@ -17,7 +17,7 @@ sudo ./install_vault
 Install autocompletion and set Vault address for the current user:
 
 ```bash
-./configure_shell
+./scripts/configure_shell.sh
 ```
 
 ## Initialize and unseal Vault
@@ -27,7 +27,7 @@ Initilialize Vault with 1 key share and a threshold of 1 (see
 and store the output in the current user's home directory:
 
 ```bash
-./init_unseal
+./scripts/init_unseal.sh
 ```
 
 ## Create policies
@@ -35,7 +35,7 @@ and store the output in the current user's home directory:
 Create admin ACL policy for Vault:
 
 ```bash
-./create_policies
+./scripts/create_policies.sh
 ```
 
 ## Create authentication methods
@@ -43,5 +43,5 @@ Create admin ACL policy for Vault:
 Create GitHub authentication method and grant admin policy to all ArchiLab members:
 
 ```bash
-./create_auth_methods
+./scripts/create_auth_methods.sh
 ```

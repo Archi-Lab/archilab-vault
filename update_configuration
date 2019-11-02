@@ -1,3 +1,0 @@
-cp ./config.json /etc/vault/
-chown vault:vault /etc/vault/config.json
-chmod 640 /etc/vault/config.json
