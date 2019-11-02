@@ -17,8 +17,7 @@ curl \
     --upload-file "${HOME}/vault-unseal.json" \
     "${VAULT_ADDR}/v1/sys/unseal"
 
-VAULT_TOKEN="$(cat ${HOME}/vault-root-token)"
-echo "export VAULT_TOKEN=${VAULT_TOKEN}" >> "${HOME}/.bashrc"
-export VAULT_TOKEN
-
 rm "${HOME}/vault-init.json" "${HOME}/vault-unseal.json"
+
+echo "export VAULT_TOKEN=$(cat ${HOME}/vault-root-token)" >> "${HOME}/.bashrc"
+export VAULT_TOKEN="$(cat ${HOME}/vault-root-token)"
