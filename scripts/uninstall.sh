@@ -22,3 +22,6 @@ deluser --remove-all-files vault
 sed --in-place '/^complete -C \/usr\/local\/bin\/vault vault/d' ${HOME}/.bashrc
 sed --in-place '/^export VAULT_ADDR/d' ${HOME}/.bashrc
 sed --in-place '/^export VAULT_TOKEN/d' ${HOME}/.bashrc
+
+# Remove Vault init file
+rm ${HOME}/vault-init.json
