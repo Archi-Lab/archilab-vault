@@ -9,7 +9,6 @@ curl \
     "${VAULT_ADDR}/v1/sys/init"
 
 jq '. | {key: .keys[0]}' "${HOME}/vault-init.json" > "${HOME}/vault-unseal.json"
-jq --raw-output '.root_token' "${HOME}/vault-init.json" > "${HOME}/vault-root-token"
 
 curl \
     --silent \
@@ -17,6 +16,7 @@ curl \
     --upload-file "${HOME}/vault-unseal.json" \
     "${VAULT_ADDR}/v1/sys/unseal"
 
-rm "${HOME}/vault-init.json" "${HOME}/vault-unseal.json"
+rm "${HOME}/vault-unseal.json"
 
-echo "export VAULT_TOKEN=$(< ${HOME}/vault-root-token)" >> "${HOME}/.bashrc"
+echo "export VAULT_TOKEN=$(jq --raw-output '.root_token' "${HOME}/vault-init.json")" \
+    >> "${HOME}/.bashrc"
