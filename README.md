@@ -47,3 +47,9 @@ Create GitHub authentication method and grant admin policy to all ArchiLab membe
 ```bash
 ./scripts/create_auth_methods.sh
 ```
+
+## Uninstall Vault
+
+```bash
+sudo ./scripts/uninstall_vault.sh
+```
