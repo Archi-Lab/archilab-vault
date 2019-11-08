@@ -29,11 +29,11 @@ provision_put() {
         
         if [[ $1 =~ ^sys/policy.* ]]; then
             # Workaround (https://github.com/hashicorp/vault/issues/582#issuecomment-390460260)
-            policy="$(jq -c '.' ./data/${POLICY_ADMIN}/admin.json | sed 's/"/\\\"/g')"
-            f="{\"policy\":\"${policy}\"}"
+            POLICY="$(jq -c '.' ${f} | sed 's/"/\\\"/g')"
+            echo "{\"policy\":\"${POLICY}\"}" > /tmp/policy.json
+            f="/tmp/policy.json"
         fi
 
-        echo "Provisioning $p"
         curl \
             --silent \
             --location \
