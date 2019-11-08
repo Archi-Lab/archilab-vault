@@ -8,7 +8,6 @@ echo "{\"policy\":\"${ADMIN_POLICY}\"}" > /tmp/admin.json
 
 # Create admin policy
 curl \
-    --silent \
     --location \
     --fail \
     --header "X-Vault-Token: ${VAULT_TOKEN}" \

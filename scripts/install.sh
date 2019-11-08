@@ -14,7 +14,7 @@ apt install --yes curl unzip jq
 # Download and install Vault binary
 pushd .
 cd /tmp
-curl --location --remote-name --silent "${ZIP_URL}"
+curl --location --remote-name "${ZIP_URL}"
 unzip "${ZIP_NAME}"
 mv vault /usr/local/bin/
 popd

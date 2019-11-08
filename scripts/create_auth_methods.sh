@@ -6,7 +6,6 @@ APPROLE_SYS="sys/auth/approle"
 
 # Enable GitHub Auth
 curl \
-    --silent \
     --location \
     --fail \
     --header "X-Vault-Token: ${VAULT_TOKEN}" \
@@ -15,7 +14,6 @@ curl \
 
 # Configure GitHub Auth
 curl \
-    --silent \
     --location \
     --fail \
     --header "X-Vault-Token: ${VAULT_TOKEN}" \
@@ -24,7 +22,6 @@ curl \
 
 # Enable AppRole Auth
 curl \
-    --silent \
     --location \
     --fail \
     --header "X-Vault-Token: ${VAULT_TOKEN}" \

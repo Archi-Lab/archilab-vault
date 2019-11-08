@@ -5,7 +5,6 @@ SYS_UNSEAL="sys/unseal"
 
 # Initialize Vault
 curl \
-    --silent \
     --location \
     --upload-file ./data/${SYS_INIT}/init.json \
     --output "${HOME}/vault-init.json" \
@@ -14,7 +13,6 @@ curl \
 jq '. | {key: .keys[0]}' "${HOME}/vault-init.json" > "${HOME}/vault-unseal.json"
 
 curl \
-    --silent \
     --location \
     --upload-file "${HOME}/vault-unseal.json" \
     "${VAULT_ADDR}/v1/${SYS_UNSEAL}"
