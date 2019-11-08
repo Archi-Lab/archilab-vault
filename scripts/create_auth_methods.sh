@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 
+GITHUB_SYS="sys/auth/github"
+GITHUB_CONFIG="auth/github/config"
+APPROLE_SYS="sys/auth/approle"
+
 # Enable GitHub Auth
 curl \
     --silent \
     --location \
     --fail \
     --header "X-Vault-Token: ${VAULT_TOKEN}" \
-    --data @./data/sys/auth/github.json \
-    "${VAULT_ADDR}/v1/sys/auth/github"
+    --data "@./data/${GITHUB_SYS}/github.json" \
+    "${VAULT_ADDR}/v1/${GITHUB_SYS}"
 
 # Configure GitHub Auth
 curl \
@@ -15,8 +19,8 @@ curl \
     --location \
     --fail \
     --header "X-Vault-Token: ${VAULT_TOKEN}" \
-    --data @./data/auth/github/config/config.json \
-    "${VAULT_ADDR}/v1/auth/github/config"
+    --data "@./data/${GITHUB_CONFIG}/config.json" \
+    "${VAULT_ADDR}/v1/${GITHUB_CONFIG}"
 
 # Enable AppRole Auth
 curl \
@@ -24,5 +28,5 @@ curl \
     --location \
     --fail \
     --header "X-Vault-Token: ${VAULT_TOKEN}" \
-    --data @./data/sys/auth/approle.json \
-    "${VAULT_ADDR}/v1/sys/auth/approle"
+    --data "@./data/${APPROLE_SYS}/approle.json" \
+    "${VAULT_ADDR}/v1/${APPROLE_SYS}"
