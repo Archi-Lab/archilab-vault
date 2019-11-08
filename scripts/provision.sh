@@ -39,7 +39,7 @@ provision_put() {
             --location \
             --fail \
             --header "X-Vault-Token: ${VAULT_TOKEN}" \
-            --upload_file "${f}" \
+            --upload-file "${f}" \
             "${VAULT_ADDR}/v1/${p}"
     done
     popd > /dev/null
