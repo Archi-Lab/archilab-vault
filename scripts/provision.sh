@@ -27,7 +27,7 @@ provision_put() {
     pushd "$1" > /dev/null
     for f in $(ls "$1"/*.json); do
         p="$1/${f%.json}"
-        
+
         if [[ $1 =~ ^sys/policy.* ]]; then
             # Workaround (https://github.com/hashicorp/vault/issues/582#issuecomment-390460260)
             POLICY="$(jq -c '.' ${f} | sed 's/"/\\\"/g')"
