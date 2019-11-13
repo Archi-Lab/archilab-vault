@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 SYS_INIT="sys/init"
 SYS_UNSEAL="sys/unseal"
 
