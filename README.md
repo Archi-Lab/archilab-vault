@@ -9,7 +9,7 @@ Download and install a precompiled Hashicorp Vault binary and run it as a
 service:
 
 ```bash
-sudo ./scripts/install_vault.sh
+sudo ./scripts/install.sh
 ```
 
 ## Configure Shell
@@ -28,24 +28,28 @@ Initilialize Vault with 1 key share and a threshold of 1 (see
 and store the output in the current user's home directory:
 
 ```bash
-./scripts/init_unseal.sh
+./scripts/init.sh
 source ~/.bashrc
 ```
 
-## Create policies
+## Provision Vault
 
-Create admin ACL policy for Vault:
+The data directory is structured according to Vault's HTTP API. Every path
+segment except for the last one becomes a folder. The last path segment becomes
+a JSON file with the payload as its content. This makes it very easy to codify
+the provisioning in a script:
 
 ```bash
-./scripts/create_policies.sh
+./scripts/provision.sh
 ```
 
-## Create authentication methods
+## Configure Jenkins AppRole
 
-Create GitHub authentication method and grant admin policy to all ArchiLab members:
+Read the role ID and create a secret ID for the Jenkins AppRole and store them
+in the home directory of the current user:
 
 ```bash
-./scripts/create_auth_methods.sh
+./scripts/configure_jenkins_approle.sh
 ```
 
 ## Uninstall Vault
