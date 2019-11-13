@@ -1,4 +1,7 @@
 {
   "name": "archilab-vault",
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  }
 }
