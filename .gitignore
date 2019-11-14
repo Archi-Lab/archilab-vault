@@ -1,6 +1,6 @@
 # Sensitive data
-scripts/create_secrets.sh
-data/secret
+data/secret/data/*
+!data/secret/data/.gitkeep
 
 # Logs
 logs
