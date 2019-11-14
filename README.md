@@ -52,6 +52,39 @@ in the home directory of the current user:
 ./scripts/configure_jenkins_approle.sh
 ```
 
+## Create secrets
+
+To create secrets put JSON files containing the secrets inside the directory `data/secret/data` and adjust the script `scripts/create_secrets.sh`. Those changes should never be pushed since they contain sensitive data.
+
+### Example:
+
+#### **`my/secret/path.json`**
+
+```json
+{
+  "data": {
+    "key1": "value1",
+    "key2": "value2"
+  }
+}
+```
+
+#### **`scripts/create-secrets.sh`**
+
+```bash
+...
+
+pushd data >/dev/null
+provision_post secret/data/my/secret
+popd > /dev/null
+```
+
+Create secrets:
+
+```bash
+./scripts/create_secrets.sh
+```
+
 ## Uninstall Vault
 
 ```bash
