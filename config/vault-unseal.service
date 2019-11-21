@@ -4,6 +4,8 @@ Requires=network-online.target vault.service
 After=network-online.target vault.service
 ConditionFileNotEmpty=/etc/vault/vault-init.json
 ConditionFileNotEmpty=/etc/vault/vault-addr.txt
+StartLimitIntervalSec=60
+StartLimitBurst=3
 
 [Service]
 User=vault
@@ -14,6 +16,14 @@ PrivateTmp=yes
 PrivateDevices=yes
 NoNewPrivileges=yes
 ExecStart=/usr/local/bin/vault-unseal
+ExecReload=/bin/kill --signal HUP $MAINPID
+KillMode=process
+KillSignal=SIGINT
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+StartLimitInterval=60
+StartLimitBurst=3
 
 [Install]
 WantedBy=multi-user.target
