@@ -27,20 +27,17 @@ cp ./config/vault.service /etc/systemd/system/
 
 # Create a Vault user
 set +e
-useradd --system --home /etc/vault --shell /bin/bash vault &>/dev/null
+useradd --system --home /etc/vault --shell /bin/false vault &>/dev/null
 set -e
 
-# Create Vault directories and install configuration file
+# Create Vault directories and install configuration files
 mkdir --parents /etc/vault
 cp ./config/config.json /etc/vault/
+echo "https://vault.archi-lab.io" > /etc/vault/vault-addr.txt
 chown --recursive vault:vault /etc/vault
 chmod 640 /etc/vault/config.json
 mkdir --parents /var/lib/vault
 chown --recursive vault:vault /var/lib/vault
-
-# Install scripts
-cp ./scripts/unseal.sh /etc/vault
-echo "https://vault.archi-lab.io" > /etc/vault/vault-addr.txt
 
 # Enable and start Vault service
 systemctl enable --now vault

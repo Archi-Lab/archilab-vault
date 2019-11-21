@@ -1,0 +1,18 @@
+[Unit]
+Description="Unseal HashiCorp Vault"
+Requires=network-online.target vault.service
+After=network-online.target vault.service
+ConditionFileNotEmpty=/etc/vault/vault-init.json /etc/vault/vault-addr.txt
+
+[Service]
+User=vault
+Group=vault
+ProtectSystem=full
+ProtectHome=read-only
+PrivateTmp=yes
+PrivateDevices=yes
+NoNewPrivileges=yes
+ExecStart=/usr/local/bin/vault-unseal
+
+[Install]
+WantedBy=multi-user.target
