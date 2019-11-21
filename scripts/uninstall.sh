@@ -17,11 +17,3 @@ rm --recursive --force /var/lib/vault
 
 # Remove Vault user
 deluser --remove-all-files vault
-
-# Remove shell configuration
-sed --in-place '/^complete -C \/usr\/local\/bin\/vault vault/d' ${HOME}/.bashrc
-sed --in-place '/^export VAULT_ADDR/d' ${HOME}/.bashrc
-sed --in-place '/^export VAULT_TOKEN/d' ${HOME}/.bashrc
-
-# Remove Vault init file
-rm ${HOME}/vault-init.json

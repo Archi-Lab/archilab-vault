@@ -38,5 +38,9 @@ chmod 640 /etc/vault/config.json
 mkdir --parents /var/lib/vault
 chown --recursive vault:vault /var/lib/vault
 
+# Install scripts
+cp ./scripts/unseal.sh /etc/vault
+echo "https://vault.archi-lab.io" > /etc/vault/vault-addr.txt
+
 # Enable and start Vault service
 systemctl enable --now vault

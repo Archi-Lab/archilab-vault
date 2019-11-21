@@ -2,14 +2,13 @@
 
 set -e
 
+VAULT_DIR="/etc/vault"
+VAULT_ADDR="$(< "${VAULT_DIR}/vault_addr.txt")"
 SYS_INIT="sys/init"
 
 # Initialize Vault
 curl \
     --location \
     --upload-file ./data/${SYS_INIT}.json \
-    --output "${HOME}/vault-init.json" \
+    --output "${VAULT_DIR}/vault-init.json" \
     "${VAULT_ADDR}/v1/${SYS_INIT}"
-
-echo "export VAULT_TOKEN=$(jq --raw-output '.root_token' "${HOME}/vault-init.json")" \
-    >> "${HOME}/.bashrc"
