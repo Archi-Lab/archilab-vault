@@ -27,7 +27,7 @@ cp ./config/vault.service /etc/systemd/system/
 
 # Create a Vault user
 set +e
-useradd --system --home /etc/vault --shell /bin/false vault &>/dev/null
+useradd --system --home /etc/vault --shell /bin/bash vault &>/dev/null
 set -e
 
 # Create Vault directories and install configuration file
