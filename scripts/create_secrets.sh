@@ -5,7 +5,7 @@ set -e
 shopt -s nullglob
 
 VAULT_DIR="/etc/vault"
-VAULT_ADDR="$(< "${VAULT_DIR}/vault_addr.txt")"
+VAULT_ADDR="$(< "${VAULT_DIR}/vault-addr.txt")"
 VAULT_TOKEN="$(jq --raw-output '.root_token' "${VAULT_DIR}/vault-init.json")"
 
 provision_post() {

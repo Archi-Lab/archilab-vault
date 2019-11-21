@@ -3,7 +3,7 @@
 set -e
 
 VAULT_DIR="/etc/vault"
-VAULT_ADDR="$(< "${VAULT_DIR}/vault_addr.txt")"
+VAULT_ADDR="$(< "${VAULT_DIR}/vault-addr.txt")"
 SYS_INIT="sys/init"
 
 # Initialize Vault

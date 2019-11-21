@@ -3,7 +3,7 @@
 set -e
 
 VAULT_DIR="/etc/vault"
-VAULT_ADDR="$(< "${VAULT_DIR}/vault_addr.txt")"
+VAULT_ADDR="$(< "${VAULT_DIR}/vault-addr.txt")"
 VAULT_TOKEN="$(jq --raw-output '.root_token' "${VAULT_DIR}/vault-init.json")"
 APPROLE_JENKINS="auth/approle/role/jenkins"
 
