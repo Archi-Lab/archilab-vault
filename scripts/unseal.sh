@@ -9,6 +9,8 @@ SYS_UNSEAL="sys/unseal"
 jq '. | {key: .keys[0]}' "${VAULT_DIR}/vault-init.json" > "/tmp/vault-unseal.json"
 
 curl \
+    --silent \
     --location \
+    --fail \
     --upload-file "/tmp/vault-unseal.json" \
     "${VAULT_ADDR}/v1/${SYS_UNSEAL}"
