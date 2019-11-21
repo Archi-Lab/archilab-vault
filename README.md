@@ -12,24 +12,22 @@ service:
 sudo ./scripts/install.sh
 ```
 
-## Configure Shell
-
-Install autocompletion and set Vault address for the current user:
-
-```bash
-./scripts/configure_shell.sh
-source ~/.bashrc
-```
-
-## Initialize and unseal Vault
+## Initialize Vault
 
 Initilialize Vault with 1 key share and a threshold of 1 (see
 [Shamir's Secret Sharing](https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing))
 and store the output in the current user's home directory:
 
 ```bash
-./scripts/init.sh
-source ~/.bashrc
+sudo ./scripts/init.sh
+```
+
+## Install unseal service
+
+After initialization and after every reboot Vault is in a sealed state. In order to automate the process of unsealing execute the following script:
+
+```bash
+sudo ./scripts/install-unseal-service.sh
 ```
 
 ## Provision Vault
@@ -40,7 +38,7 @@ a JSON file with the payload as its content. This makes it very easy to codify
 the provisioning in a script:
 
 ```bash
-./scripts/provision.sh
+sudo ./scripts/provision.sh
 ```
 
 ## Configure Jenkins AppRole
@@ -49,12 +47,12 @@ Read the role ID and create a secret ID for the Jenkins AppRole and store them
 in the home directory of the current user:
 
 ```bash
-./scripts/configure_jenkins_approle.sh
+sudo ./scripts/configure-jenkins-approle.sh
 ```
 
 ## Create secrets
 
-To create secrets put JSON files containing the secrets inside the directory `data/secret/data` and adjust the script `scripts/create_secrets.sh`. Those changes should never be pushed since they contain sensitive data.
+To create secrets put JSON files containing the secrets inside the directory `data/secret/data` and adjust the script `scripts/create-secrets.sh`. Those changes should never be pushed since they contain sensitive data.
 
 ### Example:
 
@@ -82,11 +80,11 @@ popd > /dev/null
 Create secrets:
 
 ```bash
-./scripts/create_secrets.sh
+sudo ./scripts/create-secrets.sh
 ```
 
 ## Uninstall Vault
 
 ```bash
-sudo ./scripts/uninstall_vault.sh
+sudo ./scripts/uninstall-vault.sh
 ```
