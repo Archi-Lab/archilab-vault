@@ -52,7 +52,7 @@ provision_put() {
 }
 
 echo "Verifying Vault is unsealed"
-vault status > /dev/null
+vault status -address="${VAULT_ADDR}" > /dev/null
 
 pushd data >/dev/null
 provision_post sys/auth
