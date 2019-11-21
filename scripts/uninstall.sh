@@ -12,6 +12,7 @@ rm /etc/systemd/system/vault-unseal.service
 
 # Remove Vault binary
 rm /usr/local/bin/vault
+rm /usr/local/bin/vault-unseal
 
 # Remove Vault directories
 rm --recursive --force /etc/vault
