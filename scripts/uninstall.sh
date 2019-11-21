@@ -4,9 +4,11 @@ set -e
 
 # Stop Vault service
 systemctl stop vault
+systemctl stop vault-unseal
 
 # Remove Vault systemd service
 rm /etc/systemd/system/vault.service
+rm /etc/systemd/system/vault-unseal.service
 
 # Remove Vault binary
 rm /usr/local/bin/vault
