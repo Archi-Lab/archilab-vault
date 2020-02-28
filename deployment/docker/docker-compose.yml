@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  vault:
+    image: archilab-vault
+    ports:
+      - "8200:8200"
+    volumes:
+      - vault-data:/var/lib/vault
+    environment:
+      TZ: Europe/Berlin
+    networks:
+      - vault
+
+volumes:
+  vault-data:
+
+networks:
+  vault:
+    driver: overlay
+    attachable: true
