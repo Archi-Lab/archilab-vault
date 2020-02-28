@@ -1,6 +1,6 @@
 {
   "path": {
-    "secret/data/archilab/keycloak": {
+    "secret/data/archilab/keycloak/*": {
       "capabilities": ["read", "list"]
     }
   }

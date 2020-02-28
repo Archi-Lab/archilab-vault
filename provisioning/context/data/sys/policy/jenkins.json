@@ -1,6 +1,6 @@
 {
   "path": {
-    "secret/data/archilab/jenkins": {
+    "secret/data/archilab/jenkins/credentials": {
       "capabilities": ["read", "list"]
     }
   }
