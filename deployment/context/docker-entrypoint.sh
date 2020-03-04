@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eumo pipefail
+set -o errexit -o nounset -o pipefail -o monitor
 IFS=$'\n\t'
 
 vault_address='http://vault:8200'

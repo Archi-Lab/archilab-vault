@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-ARG VAULT_VERSION="1.3.2"
+ARG vault_version="1.3.2"
 
 # Upgrade packages and install dependencies
 RUN  set -eux; \
@@ -22,17 +22,17 @@ RUN set -eux; \
         && mkdir --parents /var/lib/vault \
         && chown --recursive vault:vault /var/lib/vault
 
-ENV RELEASES_URL="https://releases.hashicorp.com/vault"
-ENV ZIP_NAME="vault_${VAULT_VERSION}_linux_amd64.zip"
-ENV ZIP_URL="${RELEASES_URL}/${VAULT_VERSION}/${ZIP_NAME}"
+ENV releases_url="https://releases.hashicorp.com/vault"
+ENV zip_name="vault_${vault_version}_linux_amd64.zip"
+ENV zip_url="${releases_url}/${vault_version}/${zip_name}"
 
 # Download and install Vault binary
 RUN set -eux; \
         cd /tmp \
-        && curl --location --remote-name "${ZIP_URL}" \
-        && unzip "${ZIP_NAME}" \
+        && curl --location --remote-name "${zip_url}" \
+        && unzip "${zip_name}" \
         && mv vault /usr/local/bin/ \
-        && rm "${ZIP_NAME}"
+        && rm "${zip_name}"
 
 # Install configuration file
 COPY --chown=vault:vault config/config.json /etc/vault/
